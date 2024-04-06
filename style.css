@@ -30,20 +30,14 @@ General
 
 body { font-family: "Hanken Grotesk", sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal;color: var(--black); background: var(--white); margin: 0; padding: 0;}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {  }
-
 p { font-size: var(--fs-base); }
 img { width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; cursor: pointer;}
-
 u{ background: var(--color-2); text-decoration: none;}
-
 strong{color: var(--color-1);}
+
+div p:last-child{margin-block-end: 0;}
+
 
 /*-------------------------------------------------------
 Helpers
@@ -60,11 +54,6 @@ Helpers
 .bg--1{background: var(--color-1);}
 .bg--2{background: var(--color-2);}
 
-.title{font-size: var(--fs-xxl);}
-
-
-
-
 
 @media (max-width: 1024px) {
  .container > .container { width: 100%; }
@@ -80,41 +69,15 @@ Header
 .header__content p{font-size: var(--fs-md); font-weight: 600;}
 
 
-
 /*-------------------------------------------------------
 Form
 -------------------------------------------------------*/
-.form{text-align: center;}
+.form { text-align: center; padding-bottom: var(--space-2);}
 
-.form input[type='email'] {
-	text-align: center;
-	width: 100%;
-	margin: 0 auto;
-	max-width: 50ch;
-	display: block;
-	padding: 0.8rem;
-	border-radius: 100px !important;
-	font-size: var(--fs-base);
-	position: relative;
-	border: 2px solid var(--black);
-}
+.form input[type='email'] { text-align: center; width: 100%; margin: 0 auto; max-width: 50ch; display: block; padding: 0.8rem; border-radius: 100px !important; font-size: var(--fs-base); position: relative; border: 2px solid var(--black); }
 
-.form__checkbox { display: flex; align-items: center; justify-content: center; gap: 1rem; text-align: left;}
-
-.form__checkbox label{ font-size: var(--fs-sm);}
-
-
-@property --gradient-angle{
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-}
-
-@keyframes rotation {
-    from{ --gradient-angle: 0deg}
-    to { --gradient-angle: 360deg}
-}
-
+.form__checkbox { display: flex; align-items: center; justify-content: center; gap: 1rem; text-align: left; }
+.form__checkbox label { font-size: var(--fs-sm); }
 
 
 /*-------------------------------------------------------
@@ -127,7 +90,7 @@ Button
 /*-------------------------------------------------------
 Video
 -------------------------------------------------------*/
-.video{text-align: center;}
+.video{text-align: center; padding-bottom: var(--space-2);}
 .video__title h2{font-size: var(--fs-lg);}
 
 .video__title h3{font-size: var(--fs-md);}
@@ -136,15 +99,13 @@ Video
 .video__media video{width: 100%; height: auto; display: block;}
 
 
-
 /*-------------------------------------------------------
 Jumbotron
 -------------------------------------------------------*/
-.jumbotron{padding: var(--space-2) 0; background: var(--color-2); margin: var(--space-2) auto;}
+.jumbotron{padding: var(--space-2) 0; background: var(--color-2);}
 
-.jumbotron h2{font-size: var(--fs-xl); text-align: center; font-weight: 400;}
-.jumbotron strong{ font-size: var(--fs-xxl); color: var(--color-1);}
-
+.jumbotron h2{font-size: var(--fs-xl); text-align: center; font-weight: 400; margin: 0;}
+.jumbotron strong{ font-size: var(--fs-xxl); color: var(--color-1); display: inline-block;}
 
 
 /*-------------------------------------------------------
@@ -174,11 +135,10 @@ Panel
 }
 
 
-
 /*-------------------------------------------------------
 Grid
 -------------------------------------------------------*/
-.grid { background: var(--color-1-50);  padding: var(--space-1) 0; }
+.grid { background: var(--color-1-50);  padding: var(--space-2) 0; }
 
 .grid .container{display: flex; justify-content: space-between;}
 
@@ -201,12 +161,11 @@ Parallax
 .parallax { background-image: var(--bg-image); height: 100vh; background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
 
 
-
 /*-------------------------------------------------------
 Features
 -------------------------------------------------------*/
 .features{background: var(--color-1-50); padding: var(--space-2) 0;}
-.features .container{display: flex; justify-content: space-between; margin: var(--space-2) auto; align-items: flex-start;}
+.features .container{display: flex; justify-content: space-between;  align-items: flex-start;}
 
 .features__title{position: sticky; top: 45%;}
 .features__title h2{font-size: var(--fs-xl); margin-block-start: 0; font-weight: 400;}
