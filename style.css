@@ -30,7 +30,7 @@ General
 
 body { font-family: "Hanken Grotesk", sans-serif; font-optical-sizing: auto; font-weight: 400; font-style: normal;color: var(--black); background: var(--white); margin: 0; padding: 0;}
 
-p { font-size: var(--fs-base); }
+p { font-size: var(--fs-base); font-weight: 300;}
 img { width: 100%; height: auto; display: block; }
 a { text-decoration: none; color: inherit; cursor: pointer;}
 u{ background: var(--color-2); text-decoration: none;}
@@ -51,7 +51,7 @@ Helpers
 .color-1{color: var(--color-1);}
 .color-2{color: var(--color-2);}
 
-.bg--1{background: var(--color-1);}
+.bg--1{background: var(--color-1-50);}
 .bg--2{background: var(--color-2);}
 
 
@@ -59,13 +59,17 @@ Helpers
  .container > .container { width: 100%; }
 }
 
+@media screen and (min-aspect-ratio: 21 / 9){
+	.container { width: 65%; }
+}
 
 /*-------------------------------------------------------
 Header
 -------------------------------------------------------*/
 .header{text-align: center; text-wrap: pretty;}
 .header__title h2{ font-family: "League Spartan", sans-serif; font-optical-sizing: auto; font-weight: 800; font-style: normal; text-align: center; font-size: var(--fs-xxxl); color: var(--color-1); letter-spacing: -3px; margin-block-end: 0.4em;}
-
+.header__title h3{font-size: var(--fs-lg);}
+.header__title strong{font-weight: 900 !important; font-size: var(--fs-xl);}
 .header__content p{font-size: var(--fs-md); font-weight: 600;}
 
 
@@ -86,6 +90,7 @@ Button
 .button { display: inline-block; font-size: var(--fs-md); color: var(--color-3); font-weight: 600; background-color: var(--color-2); outline: none; border: none; padding: 1rem 1.4rem; margin: 0 auto; border-radius: 100px; text-align: center; font-family: "League Spartan", sans-serif; font-optical-sizing: auto; font-weight: 800; cursor: pointer; transition: 0.4s; }
 .button:hover { transform: scale(1.05); }
 
+.button--dark{background-color: var(--color-1); color: var(--white);}
 
 /*-------------------------------------------------------
 Video
@@ -138,12 +143,13 @@ Panel
 /*-------------------------------------------------------
 Grid
 -------------------------------------------------------*/
-.grid { background: var(--color-1-50);  padding: var(--space-2) 0; }
+.grid {  padding: var(--space-2) 0; }
 
-.grid .container{display: flex; justify-content: space-between;}
-
+.grid .container{display: flex; justify-content: space-between; align-items: center;}
+.grid--reverse .container{flex-direction: row-reverse;}
 .grid__column{width: 45%; }
 .grid__column__text p{font-size: var(--fs-lg); font-weight: 300;}
+.grid--small .grid__column__text p{font-size: var(--fs-md);}
 .grid__column__text p:first-child{margin-block-start: 0;}
 .grid__column__text p:last-child{margin-block-end: 0;}
 
@@ -165,12 +171,12 @@ Parallax
 Features
 -------------------------------------------------------*/
 .features{background: var(--color-1-50); padding: var(--space-2) 0;}
-.features .container{display: flex; justify-content: space-between;  align-items: flex-start;}
+.features .container{display: flex; justify-content: space-between;  align-items: flex-start; gap: 1rem;}
 
 .features__title{position: sticky; top: 45%;}
 .features__title h2{font-size: var(--fs-xl); margin-block-start: 0; font-weight: 400;}
 
-.features__content { list-style-type: none; counter-reset: custom_list; width: 75%; padding-inline-start: 0; }
+.features__content { list-style-type: none; counter-reset: custom_list; width: 70%; padding-inline-start: 0; }
 
 .features__content__item { counter-increment: custom_list; font-size: var(--fs-md); margin-block-end: 1em; margin-left: 0; font-weight: 300;}
 .features__content__item::before { content: counter(custom_list) ". "; font-weight: 900; font-family: "League Spartan", sans-serif; font-optical-sizing: auto; font-weight: 800; color: var(--color-1); z-index: -1; opacity: 0.5; font-size: var(--fs-xxxl); margin: 0; }
@@ -180,3 +186,46 @@ Features
 	.features__title{position: static;}
 	.features__content { width: 100%; }
 }
+
+
+
+/*-------------------------------------------------------
+Slider
+-------------------------------------------------------*/
+.cards{padding: var(--space-2) 0;}
+.cards h2{font-family: "League Spartan", sans-serif; font-optical-sizing: auto; font-weight: 800; font-style: normal; text-align: center; font-size: var(--fs-xxxl); color: var(--color-1); letter-spacing: -3px; margin-block-end: 0.4em;}
+
+.cards__wrapper { display: flex; justify-content: space-between; flex-wrap: wrap; gap: var(--space-2) 1rem; margin-top: var(--space-2); }
+
+.card { border-radius: 1rem; width: 30%; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);transition: 0.4s; }
+.card:hover{transform: scale(1.02);}
+.card:hover .card__text{background: var(--color-1); color: var(--white)}
+.card:hover .card__text h3{ color: var(--white)}
+.card:hover .card__text p strong { color: var(--white); }
+
+.card__text { padding: 1rem; border-top: 8px solid var(--color-1); border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem; transition: 0.4s;}
+.card__text h3 { font-size: var(--fs-md); font-family: "League Spartan", sans-serif; color: var(--color-1); }
+.card__text p { font-size: var(--fs-base); font-weight: 300; opacity: 0.; line-height: 1.5; }
+.card__text p strong { color: var(--color-1); }
+
+.card__media img { border-top-left-radius: 1rem; border-top-right-radius: 1rem; aspect-ratio: 16/9; object-fit: cover; }
+
+
+@media (max-width: 1024px) {
+	.card{
+		width: 45%;;
+		justify-content: space-evenly; 
+	}
+}
+
+@media (max-width: 768px) {
+	.card{
+		width: 100%;;
+		flex-direction: column;
+	}
+}
+
+
+
+
+
